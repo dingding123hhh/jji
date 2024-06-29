@@ -49,86 +49,98 @@ local about = UITab1:section("『信息』",true)
 
 about:Label("作者QQ198436746")
 about:Label("qq群930667114")
-about:Label("作者ding ding")
-about:Label("丁丁脚本脚本")
+about:Label("作者：丁丁")
+about:Label("脚本疯狂优化中")
+about:Label("你的注入器:"..identifyexecutor())
+about:Label("你的用户名:"..game.Players.LocalPlayer.Character.Name)
 
 local UITab2 = win:Tab("『通用』",'16060333448')
 
-local about = UITab2:section("『人物』",true)
+local about = UITab2:section("『通用』",true)
 
-about:Slider("速度",function()
-
-	Min = 16,
-
-	Max = 200,
-
-	Default = 16,
-
-	Color = Color3.fromRGB(255,255,255),
-
-	Increment = 1,
-
-	ValueName = "数值",
-
-	Callback = function(Value)
-
-		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+about:Button("玩家加入游戏提示",function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/boyscp/scriscriptsc/main/bbn.lua"))()
 end)
 
-about:Slider("跳跃高度",function()
-    Min = 50,
-
-	Max = 200,
-
-	Default = 50,
-
-	Color = Color3.fromRGB(255,255,255),
-
-	Increment = 1,
-
-	ValueName = "数值",
-
-	Callback = function(Value)
-
-		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+about:Button("穿墙",function()
+local Workspace = game:GetService("Workspace")
+local Players = game:GetService("Players")
+local Clipon = true
+ 
+Stepped = game:GetService("RunService").Stepped:Connect(function()
+	if not Clipon == false then
+		for a, b in pairs(Workspace:GetChildren()) do
+        if b.Name == Players.LocalPlayer.Name then
+        for i, v in pairs(Workspace[Players.LocalPlayer.Name]:GetChildren()) do
+        if v:IsA("BasePart") then
+        v.CanCollide = false
+        end end end end
+	else
+		Stepped:Disconnect()
+	end
 end)
 
-about:Textbox("跳跃高度设置",function()
-
-	Default = "",
-
-	TextDisappear = true,
-
-	Callback = function(Value)
-
-		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
-
+about:Button("飞行",function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/dingding123hhh/fly/main/%E4%B8%81%E4%B8%81%E9%A3%9E%E8%A1%8C.txt"))()
 end)
 
-about:Textbox("移动速度设置",function()
-    Default = "",
-
-	TextDisappear = true,
-
-	Callback = function(Value)
-
-		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+about:Button("替身",function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/SkrillexMe/SkrillexLoader/main/SkrillexLoadMain')))()
 end)
 
-about:Textbox("重力设置",function()
-Default = "",
-
-	TextDisappear = true,
-
-	Callback = function(Value)
-
-		game.Workspace.Gravity = Value
+about:Button("爬墙",function()
+loadstring(game:HttpGet("https://pastebin.com/raw/zXk4Rq2r"))()
 end)
 
-about:Toggle("夜视",function()
+about:Button("汉化阿尔宙斯自瞄",function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/dingding123hhh/sgbs/main/%E4%B8%81%E4%B8%81%20%E6%B1%89%E5%8C%96%E8%87%AA%E7%9E%84.txt"))()
+end)
 
-		if Value then
+about:Button("工具挂",function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Bebo-Mods/BeboScripts/main/StandAwekening.lua"))()
+end)
 
+about:Button("甩飞",function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/dingding123hhh/hknvh/main/%E7%94%A9%E9%A3%9E.txt"))()
+end)
+
+about:Button("防掉线",function()
+print("Anti Afk On")
+
+		local vu = game:GetService("VirtualUser")
+
+		game:GetService("Players").LocalPlayer.Idled:connect(function()
+
+		   vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+
+		   wait(1)
+
+		   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+
+		end)
+end)
+
+about:Button("透视",function()
+loadstring(game:HttpGet('https://pastebin.com/raw/MA8jhPWT'))()
+end)
+
+about:Button("无敌『不适用』",function()
+loadstring(game:HttpGet('https://pastebin.com/raw/H3RLCWWZ'))()
+end)
+
+about:Button("隐身（E）",function()
+loadstring(game:HttpGet('https://pastebin.com/raw/nwGEvkez'))()
+end)
+
+about:Button("电脑键盘",function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
+end)
+
+about:Button("飞车",function()
+loadstring(game:HttpGet("https://pastebin.com/raw/G3GnBCyC", true))()
+end)
+
+about:Button("夜视",function()
 		    game.Lighting.Ambient = Color3.new(1, 1, 1)
 
 		else
@@ -136,4 +148,39 @@ about:Toggle("夜视",function()
 		    game.Lighting.Ambient = Color3.new(0, 0, 0)
 
 		end
+end)
+
+about:Button("踏空行走",function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/Float'))()
+end)
+
+about:Button("转圈",function()
+loadstring(game:HttpGet('https://pastebin.com/raw/r97d7dS0', true))()
+end)
+
+about:Button("紫莎",function()
+game.Players.LocalPlayer.Character.Humanoid.Health=0
+end)
+
+about:Button("飞檐走壁",function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/zXk4Rq2r"))()
+end)
+
+about:Button("夜视仪",function()
+    _G.OnShop = trueloadstring(game:HttpGet('https://raw.githubusercontent.com/DeividComSono/Scripts/main/Scanner.lua'))()
+end)
+about:Button("正常范围",function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/jiNwDbCN"))()
+end)
+about:Button("中等范围",function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/x13bwrFb"))()
+end)
+about:Button("高级范围",function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/KKY9EpZU"))()
+end)
+about:Button("反挂机",function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/9fFu43FF"))()
+end)
+about:Button("无限跳",function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/V5PQy3y0", true))()
 end)
