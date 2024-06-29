@@ -125,7 +125,7 @@ Default = "",
 		game.Workspace.Gravity = Value
 end)
 
-about:Toggle("夜视",function(Value)
+about:Toggle("夜视",function()
 
 		if Value then
 
